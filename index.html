@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -24,7 +23,9 @@
 
     <div class="p-4 bg-white shadow-sm flex items-center justify-between sticky top-0 z-50">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">BM</div>
+            <div id="u-photo" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm overflow-hidden border-2 border-green-100">
+                <i class="fas fa-user text-lg"></i>
+            </div>
             <h1 class="font-bold text-lg">BIG MANY <span class="text-green-500">💰</span></h1>
         </div>
         <div id="u-streak-box" class="text-[10px] font-bold bg-orange-100 text-orange-600 px-3 py-1 rounded-full">
@@ -54,7 +55,6 @@
                 <p id="stat-ref" class="font-bold">0/20</p>
             </div>
         </div>
-
         <div class="glass-card p-4">
             <h3 class="text-xs font-bold mb-3 text-gray-400"><i class="fas fa-trophy text-yellow-500 mr-1"></i> লিডারবোর্ড (Top Earners)</h3>
             <div id="leader-list" class="space-y-2"></div>
@@ -72,11 +72,19 @@
         </div>
 
         <div class="glass-card p-4 space-y-2">
-            <h4 class="text-[10px] font-bold text-gray-400 mb-2 uppercase">অফিশিয়াল চ্যানেল টাস্ক</h4>
-            <a href="https://t.me/+sqY70KZt2o85N2U9" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ পেমেন্ট প্রুফ</span> <i class="fas fa-check-circle text-green-500"></i></a>
-            <a href="https://t.me/+yJWXXk-IH4k5ZmJl" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ আপডেট চ্যানেল</span> <i class="fas fa-check-circle text-green-500"></i></a>
-            <a href="https://t.me/+bdheZeHnMB04Zjk1" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ অফিশিয়াল গ্রুপ</span> <i class="fas fa-check-circle text-green-500"></i></a>
-            <a href="https://t.me/+0HVp5zFYJu5iODRl" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ ইনকাম টিপস</span> <i class="fas fa-check-circle text-green-500"></i></a>
+            <h4 class="text-[10px] font-bold text-gray-400 mb-2 uppercase">অফিশিয়াল চ্যানেল টাস্ক (প্রতিটি ২৫ টাকা)</h4>
+            <div onclick="completeChannelTask('https://t.me/+sqY70KZt2o85N2U9', 't1')" class="flex justify-between items-center p-3 bg-gray-50 rounded-xl text-xs font-bold cursor-pointer">
+                <span>✅ পেমেন্ট প্রুফ</span> <span id="t1-status" class="text-blue-500">৳২৫ নিন</span>
+            </div>
+            <div onclick="completeChannelTask('https://t.me/+yJWXXk-IH4k5ZmJl', 't2')" class="flex justify-between items-center p-3 bg-gray-50 rounded-xl text-xs font-bold cursor-pointer">
+                <span>✅ আপডেট চ্যানেল</span> <span id="t2-status" class="text-blue-500">৳২৫ নিন</span>
+            </div>
+            <div onclick="completeChannelTask('https://t.me/+bdheZeHnMB04Zjk1', 't3')" class="flex justify-between items-center p-3 bg-gray-50 rounded-xl text-xs font-bold cursor-pointer">
+                <span>✅ অফিশিয়াল গ্রুপ</span> <span id="t3-status" class="text-blue-500">৳২৫ নিন</span>
+            </div>
+            <div onclick="completeChannelTask('https://t.me/+0HVp5zFYJu5iODRl', 't4')" class="flex justify-between items-center p-3 bg-gray-50 rounded-xl text-xs font-bold cursor-pointer">
+                <span>✅ ইনকাম টিপস</span> <span id="t4-status" class="text-blue-500">৳২৫ নিন</span>
+            </div>
         </div>
     </div>
 
@@ -101,11 +109,11 @@
                 </div>
             </div>
             <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
-                <span id="ref-link" class="text-[9px] truncate mr-2">https://t.me/BIGMANY_BOT?start=loading</span>
+                <span id="ref-link" class="text-[9px] truncate mr-2">https://t.me/Bigmany9_bot?start=loading</span>
                 <button onclick="copyRef()" class="bg-green-500 px-4 py-1 rounded-lg text-xs font-bold">কপি</button>
             </div>
         </div>
-        <p class="text-[10px] text-center text-gray-400 font-bold italic">মিনিমাম ২০টি সরাসরি (Level 1) রেফার লাগবে টাকা তুলতে।</p>
+        <p class="text-[10px] text-center text-gray-400 font-bold italic">মিনিমাম ২০টি সরাসরি রেফার লাগবে টাকা তুলতে।</p>
     </div>
 
     <div id="support" class="tab-content p-4">
@@ -114,19 +122,17 @@
                 <i class="fab fa-telegram-plane"></i>
             </div>
             <h3 class="font-bold text-xl mb-2">সরাসরি সাপোর্ট</h3>
-            <p class="text-sm text-gray-500 mb-8 px-4">যেকোনো সমস্যার জন্য সরাসরি ইনবক্স করুন। আমরা ২৪ ঘণ্টা আছি।</p>
+            <p class="text-sm text-gray-500 mb-8 px-4">যেকোনো সমস্যার জন্য সরাসরি ইনবক্স করুন।</p>
             <a href="https://t.me/LAMHA_MAM" class="inline-block w-full py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl active:scale-95 transition">@LAMHA_MAM এ মেসেজ দিন</a>
         </div>
     </div>
 
     <div id="wallet" class="tab-content p-4 space-y-4">
         <div class="glass-card p-6 space-y-4">
-            <h3 class="font-bold text-center border-b pb-3 uppercase tracking-tighter">টাকা উত্তোলন (Withdraw)</h3>
-            
+            <h3 class="font-bold text-center border-b pb-3 uppercase">টাকা উত্তোলন (Withdraw)</h3>
             <div id="withdraw-notice" class="text-[10px] font-bold text-center p-3 rounded-xl bg-gray-50">
                 শর্ত: ১২০০ টাকা + ২০ রেফার + ২০ অ্যাড
             </div>
-
             <div class="space-y-4">
                 <select id="method" class="w-full p-4 bg-gray-50 border rounded-2xl text-sm outline-none">
                     <option value="BKASH">BKASH</option>
@@ -153,6 +159,9 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getDatabase, ref, onValue, runTransaction, set, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
+        const botUsername = "Bigmany9_bot";
+        const botToken = "8686765063:AAHBJaXO_KyLAilS8M0pM1y9dvaomKnOSM0";
+
         const firebaseConfig = {
             apiKey: "AIzaSyDQlyrEPOXbxijRI_xlqKqKN0Eo7UZcmHc",
             authDomain: "emon-pay-bot.firebaseapp.com",
@@ -166,39 +175,46 @@
         const userId = localStorage.getItem('bot_uid') || "USER_" + Math.floor(Math.random()*9999);
         localStorage.setItem('bot_uid', userId);
 
-        // Initial Setup for New User (Join Bonus 50 BDT)
-        get(ref(db, 'users/' + userId)).then((snapshot) => {
-            if (!snapshot.exists()) {
-                set(ref(db, 'users/' + userId), {
-                    balance: 50, // Joining Bonus
-                    adCount: 0,
-                    refL1: 0,
-                    refL2: 0,
-                    refL3: 0,
-                    streak: 0,
-                    name: "User_" + userId.slice(-4)
-                });
-            }
-        });
-
-        let uData = { balance: 0, adCount: 0, refL1: 0, refL2: 0, refL3: 0, streak: 0 };
+        const getToday = () => new Date().toISOString().split('T')[0];
 
         onValue(ref(db, 'users/' + userId), (snap) => {
-            uData = snap.val() || { balance: 50, adCount: 0, refL1: 0, refL2: 0, refL3: 0, streak: 0 };
-            document.getElementById('u-balance').innerText = uData.balance.toFixed(2);
-            document.getElementById('u-streak').innerText = uData.streak || 0;
-            document.getElementById('stat-ads').innerText = (uData.adCount || 0) + "/20";
-            document.getElementById('task-count').innerText = uData.adCount || 0;
-            document.getElementById('task-bar').style.width = (uData.adCount / 20 * 100) + "%";
-            document.getElementById('stat-ref').innerText = (uData.refL1 || 0) + "/20";
-            document.getElementById('l1-count').innerText = (uData.refL1 || 0) + " জন";
-            document.getElementById('l2-count').innerText = (uData.refL2 || 0) + " জন";
-            document.getElementById('l3-count').innerText = (uData.refL3 || 0) + " জন";
-            document.getElementById('ref-link').innerText = "https://t.me/BIGMANY_BOT?start=" + userId;
+            let data = snap.val() || { balance: 50, adCount: 0, refL1: 0, refL2: 0, refL3: 0, streak: 0, lastDate: getToday() };
+            
+            // Daily Reset Logic
+            if(data.lastDate !== getToday()) {
+                runTransaction(ref(db, 'users/' + userId), (u) => {
+                    if(u) { u.adCount = 0; u.lastDate = getToday(); }
+                    return u;
+                });
+            }
+
+            document.getElementById('u-balance').innerText = data.balance.toFixed(2);
+            document.getElementById('u-streak').innerText = data.streak || 0;
+            document.getElementById('stat-ads').innerText = (data.adCount || 0) + "/20";
+            document.getElementById('task-count').innerText = data.adCount || 0;
+            document.getElementById('task-bar').style.width = (data.adCount / 20 * 100) + "%";
+            document.getElementById('stat-ref').innerText = (data.refL1 || 0) + "/20";
+            document.getElementById('l1-count').innerText = (data.refL1 || 0) + " জন";
+            document.getElementById('l2-count').innerText = (data.refL2 || 0) + " জন";
+            document.getElementById('l3-count').innerText = (data.refL3 || 0) + " জন";
+            document.getElementById('ref-link').innerText = `https://t.me/${botUsername}?start=${userId}`;
+            
+            // Profile Sync
+            if(data.photo) {
+                document.getElementById('u-photo').innerHTML = `<img src="${data.photo}" class="w-full h-full object-cover">`;
+            }
+
+            if(data.completedTasks) {
+                Object.keys(data.completedTasks).forEach(tid => {
+                    const el = document.getElementById(tid + '-status');
+                    if(el) { el.innerText = "✅ সম্পন্ন"; el.classList.replace('text-blue-500', 'text-green-500'); }
+                });
+            }
+            window.uData = data;
         });
 
         window.showAdAndEarn = function() {
-            if (uData.adCount >= 20) return alert("আজকের টাস্ক শেষ!");
+            if (window.uData.adCount >= 20) return alert("আজকের টাস্ক শেষ!");
             show_10882727().then(() => {
                 runTransaction(ref(db, 'users/' + userId + '/balance'), b => (b || 0) + 20);
                 runTransaction(ref(db, 'users/' + userId + '/adCount'), c => (c || 0) + 1);
@@ -206,22 +222,42 @@
             }).catch(() => alert("বিজ্ঞাপন লোড হচ্ছে না।"));
         };
 
+        window.completeChannelTask = function(url, taskId) {
+            if(window.uData.completedTasks && window.uData.completedTasks[taskId]) {
+                return alert("এই টাস্কটি আপনি ইতিমধ্যে সম্পন্ন করেছেন!");
+            }
+            window.open(url, '_blank');
+            setTimeout(() => {
+                if(confirm("আপনি কি চ্যানেলে জয়েন করেছেন? করলে 'OK' চাপুন ২৫ টাকা নিতে।")) {
+                    runTransaction(ref(db, 'users/' + userId + '/balance'), b => (b || 0) + 25);
+                    set(ref(db, 'users/' + userId + '/completedTasks/' + taskId), true);
+                    alert("অভিনন্দন! ২৫ টাকা যোগ হয়েছে।");
+                }
+            }, 2000);
+        };
+
         window.handleWithdraw = function() {
             const amount = parseFloat(document.getElementById('amount').value);
             const notice = document.getElementById('withdraw-notice');
-            
-            const cond1 = uData.balance >= 1200 && amount >= 1200;
-            const cond2 = uData.adCount >= 20;
-            const cond3 = (uData.refL1 || 0) >= 20;
-
-            if (cond1 && cond2 && cond3) {
-                alert("অনুরোধ পেন্ডিং আছে! ২৪ ঘণ্টার মধ্যে পাবেন।");
+            if (window.uData.balance >= 1200 && amount >= 1200 && window.uData.adCount >= 20 && (window.uData.refL1 || 0) >= 20) {
+                alert("অনুরোধ পেন্ডিং! ২৪ ঘণ্টার মধ্যে পেমেন্ট পাবেন।");
                 notice.innerHTML = "পেমেন্ট পেন্ডিং... প্রসেসিং চলছে।";
             } else {
                 notice.classList.add('error-box');
-                notice.innerHTML = `❌ রিকোয়েস্ট রিজেক্টেড!<br>১২০০ টাকা, ২০ রেফার এবং ২০ অ্যাড লাগবে।`;
-                alert("শর্ত পূরণ হয়নি! রেড মার্ক দেখুন।");
+                notice.innerHTML = `❌ রিজেক্টেড! শর্ত: ১২০০ টাকা, ২০ রেফার, ২০ অ্যাড।`;
             }
+        };
+
+        window.switchTab = (id) => {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active-tab'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
+            document.getElementById(id).classList.add('active-tab');
+            event.currentTarget.classList.add('nav-active');
+        };
+
+        window.copyRef = () => {
+            navigator.clipboard.writeText(document.getElementById('ref-link').innerText);
+            alert("রেফার লিঙ্ক কপি হয়েছে!");
         };
 
         const leaders = [{n: "Emon Chowdhury", b: 85400}, {n: "Lamha Mam", b: 72100}, {n: "Abir Hasan", b: 50500}];
@@ -231,24 +267,12 @@
             </div>
         `).join('');
 
-        window.switchTab = (id) => {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active-tab'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
-            document.getElementById(id).classList.add('active-tab');
-            event.currentTarget.classList.add('nav-active');
-        };
-
-        const fakeUsers = ["Sag***", "Mim***", "Anu***", "Rak***"];
         setInterval(() => {
-            const u = fakeUsers[Math.floor(Math.random()*fakeUsers.length)];
+            const names = ["Sag***", "Mim***", "Anu***", "Rak***"];
+            const u = names[Math.floor(Math.random()*names.length)];
             const a = Math.floor(Math.random()*5000)+1200;
             document.getElementById('fake-news').innerText = `🎉 ${u} এইমাত্র ৳${a} উত্তোলন করেছেন (BKASH)`;
         }, 7000);
-
-        window.copyRef = () => {
-            navigator.clipboard.writeText(document.getElementById('ref-link').innerText);
-            alert("রেফার লিঙ্ক কপি হয়েছে!");
-        };
     </script>
 </body>
 </html>
