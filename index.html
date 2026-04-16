@@ -1,1 +1,254 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG MANY - Final Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src='//libtl.com/sdk.js' data-zone='10882727' data-sdk='show_10882727'></script>
+
+    <style>
+        :root { --primary: #22c55e; --bg: #f8fafc; }
+        body { background-color: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; overflow-x: hidden; }
+        .glass-card { background: white; border-radius: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+        .tab-content { display: none; padding-bottom: 100px; }
+        .active-tab { display: block !important; }
+        .nav-active { color: #22c55e !important; }
+        .error-box { border: 2px solid #ef4444; background-color: #fef2f2; color: #b91c1c; padding: 10px; border-radius: 15px; font-size: 11px; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="p-4 bg-white shadow-sm flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">BM</div>
+            <h1 class="font-bold text-lg">BIG MANY <span class="text-green-500">💰</span></h1>
+        </div>
+        <div id="u-streak-box" class="text-[10px] font-bold bg-orange-100 text-orange-600 px-3 py-1 rounded-full">
+            🔥 Streak: <span id="u-streak">0</span>
+        </div>
+    </div>
+
+    <div class="m-4 p-8 bg-green-500 rounded-[35px] text-white text-center shadow-lg shadow-green-200">
+        <p class="text-[10px] opacity-90 uppercase font-bold mb-1">মোট ব্যালেন্স</p>
+        <h2 class="text-5xl font-black italic">৳ <span id="u-balance">0.00</span></h2>
+    </div>
+
+    <div class="mx-4 mb-4 p-2 glass-card overflow-hidden">
+        <p id="fake-news" class="text-[10px] text-center text-blue-600 font-bold animate-pulse">🎉 Loading latest payouts...</p>
+    </div>
+
+    <div id="home" class="tab-content active-tab p-4 space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+            <div class="glass-card p-4 text-center">
+                <i class="fas fa-tasks text-green-500 mb-1"></i>
+                <p class="text-[9px] text-gray-400 uppercase">অ্যাড টাস্ক</p>
+                <p id="stat-ads" class="font-bold">0/20</p>
+            </div>
+            <div class="glass-card p-4 text-center">
+                <i class="fas fa-user-friends text-blue-500 mb-1"></i>
+                <p class="text-[9px] text-gray-400 uppercase">মোট রেফার</p>
+                <p id="stat-ref" class="font-bold">0/20</p>
+            </div>
+        </div>
+
+        <div class="glass-card p-4">
+            <h3 class="text-xs font-bold mb-3 text-gray-400"><i class="fas fa-trophy text-yellow-500 mr-1"></i> লিডারবোর্ড (Top Earners)</h3>
+            <div id="leader-list" class="space-y-2"></div>
+        </div>
+    </div>
+
+    <div id="task" class="tab-content p-4 space-y-4">
+        <div class="glass-card p-6 text-center border-2 border-green-100">
+            <h3 class="font-bold text-lg mb-2">প্রতিদিন ২০টি বিজ্ঞাপন দেখুন</h3>
+            <div class="w-full bg-gray-100 h-3 rounded-full mb-2">
+                <div id="task-bar" class="bg-green-500 h-full rounded-full transition-all" style="width: 0%"></div>
+            </div>
+            <p class="text-xs font-bold mb-4">সম্পন্ন: <span id="task-count">0</span> / 20</p>
+            <button onclick="showAdAndEarn()" class="w-full py-4 bg-red-500 text-white rounded-2xl font-bold shadow-lg shadow-red-200 active:scale-95">বিজ্ঞাপন দেখুন</button>
+        </div>
+
+        <div class="glass-card p-4 space-y-2">
+            <h4 class="text-[10px] font-bold text-gray-400 mb-2 uppercase">অফিশিয়াল চ্যানেল টাস্ক</h4>
+            <a href="https://t.me/+sqY70KZt2o85N2U9" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ পেমেন্ট প্রুফ</span> <i class="fas fa-check-circle text-green-500"></i></a>
+            <a href="https://t.me/+yJWXXk-IH4k5ZmJl" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ আপডেট চ্যানেল</span> <i class="fas fa-check-circle text-green-500"></i></a>
+            <a href="https://t.me/+bdheZeHnMB04Zjk1" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ অফিশিয়াল গ্রুপ</span> <i class="fas fa-check-circle text-green-500"></i></a>
+            <a href="https://t.me/+0HVp5zFYJu5iODRl" class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold"><span>✅ ইনকাম টিপস</span> <i class="fas fa-check-circle text-green-500"></i></a>
+        </div>
+    </div>
+
+    <div id="refer" class="tab-content p-4 space-y-4">
+        <div class="glass-card p-6 bg-slate-900 text-white relative overflow-hidden">
+            <h3 class="font-bold text-lg mb-4">৩-লেভেল রেফার চার্ট 📊</h3>
+            <div class="grid grid-cols-3 gap-2 text-center mb-6">
+                <div class="bg-white/10 p-2 rounded-xl border border-white/5">
+                    <p class="text-[9px] opacity-60">Level 1</p>
+                    <p class="font-bold text-green-400">৳১০০</p>
+                    <p id="l1-count" class="text-[10px]">0 জন</p>
+                </div>
+                <div class="bg-white/10 p-2 rounded-xl border border-white/5">
+                    <p class="text-[9px] opacity-60">Level 2</p>
+                    <p class="font-bold text-blue-400">৳৫০</p>
+                    <p id="l2-count" class="text-[10px]">0 জন</p>
+                </div>
+                <div class="bg-white/10 p-2 rounded-xl border border-white/5">
+                    <p class="text-[9px] opacity-60">Level 3</p>
+                    <p class="font-bold text-purple-400">৳২০</p>
+                    <p id="l3-count" class="text-[10px]">0 জন</p>
+                </div>
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
+                <span id="ref-link" class="text-[9px] truncate mr-2">https://t.me/BIGMANY_BOT?start=loading</span>
+                <button onclick="copyRef()" class="bg-green-500 px-4 py-1 rounded-lg text-xs font-bold">কপি</button>
+            </div>
+        </div>
+        <p class="text-[10px] text-center text-gray-400 font-bold italic">মিনিমাম ২০টি সরাসরি (Level 1) রেফার লাগবে টাকা তুলতে।</p>
+    </div>
+
+    <div id="support" class="tab-content p-4">
+        <div class="glass-card p-8 text-center bg-gradient-to-b from-blue-50 to-white">
+            <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto text-white text-3xl mb-4 shadow-xl shadow-blue-200">
+                <i class="fab fa-telegram-plane"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">সরাসরি সাপোর্ট</h3>
+            <p class="text-sm text-gray-500 mb-8 px-4">যেকোনো সমস্যার জন্য সরাসরি ইনবক্স করুন। আমরা ২৪ ঘণ্টা আছি।</p>
+            <a href="https://t.me/LAMHA_MAM" class="inline-block w-full py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl active:scale-95 transition">@LAMHA_MAM এ মেসেজ দিন</a>
+        </div>
+    </div>
+
+    <div id="wallet" class="tab-content p-4 space-y-4">
+        <div class="glass-card p-6 space-y-4">
+            <h3 class="font-bold text-center border-b pb-3 uppercase tracking-tighter">টাকা উত্তোলন (Withdraw)</h3>
+            
+            <div id="withdraw-notice" class="text-[10px] font-bold text-center p-3 rounded-xl bg-gray-50">
+                শর্ত: ১২০০ টাকা + ২০ রেফার + ২০ অ্যাড
+            </div>
+
+            <div class="space-y-4">
+                <select id="method" class="w-full p-4 bg-gray-50 border rounded-2xl text-sm outline-none">
+                    <option value="BKASH">BKASH</option>
+                    <option value="NAGAD">NAGAD</option>
+                    <option value="ROCKET">ROCKET</option>
+                    <option value="BINANCE">BINANCE (ID)</option>
+                </select>
+                <input type="text" id="acc-num" placeholder="আপনার একাউন্ট নাম্বার" class="w-full p-4 bg-gray-50 border rounded-2xl text-sm outline-none">
+                <input type="number" id="amount" placeholder="ন্যূনতম ১২০০" class="w-full p-4 bg-gray-50 border rounded-2xl text-sm outline-none">
+                <button onclick="handleWithdraw()" class="w-full py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg active:scale-95">অনুরোধ পাঠান</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t p-3 flex justify-around items-center z-50">
+        <button onclick="switchTab('home')" class="nav-btn nav-active flex flex-col items-center"><i class="fas fa-home"></i><span class="text-[9px] mt-1">হোম</span></button>
+        <button onclick="switchTab('task')" class="nav-btn text-gray-400 flex flex-col items-center"><i class="fas fa-tasks"></i><span class="text-[9px] mt-1">টাস্ক</span></button>
+        <button onclick="switchTab('refer')" class="nav-btn text-gray-400 flex flex-col items-center"><i class="fas fa-users"></i><span class="text-[9px] mt-1">রেফার</span></button>
+        <button onclick="switchTab('support')" class="nav-btn text-gray-400 flex flex-col items-center"><i class="fas fa-headset"></i><span class="text-[9px] mt-1">সাপোর্ট</span></button>
+        <button onclick="switchTab('wallet')" class="nav-btn text-gray-400 flex flex-col items-center"><i class="fas fa-wallet"></i><span class="text-[9px] mt-1">ওয়ালেট</span></button>
+    </nav>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getDatabase, ref, onValue, runTransaction, set, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDQlyrEPOXbxijRI_xlqKqKN0Eo7UZcmHc",
+            authDomain: "emon-pay-bot.firebaseapp.com",
+            databaseURL: "https://emon-pay-bot-default-rtdb.firebaseio.com",
+            projectId: "emon-pay-bot",
+            appId: "1:646748758256:web:adf193f191d7f695d5a235"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const userId = localStorage.getItem('bot_uid') || "USER_" + Math.floor(Math.random()*9999);
+        localStorage.setItem('bot_uid', userId);
+
+        // Initial Setup for New User (Join Bonus 50 BDT)
+        get(ref(db, 'users/' + userId)).then((snapshot) => {
+            if (!snapshot.exists()) {
+                set(ref(db, 'users/' + userId), {
+                    balance: 50, // Joining Bonus
+                    adCount: 0,
+                    refL1: 0,
+                    refL2: 0,
+                    refL3: 0,
+                    streak: 0,
+                    name: "User_" + userId.slice(-4)
+                });
+            }
+        });
+
+        let uData = { balance: 0, adCount: 0, refL1: 0, refL2: 0, refL3: 0, streak: 0 };
+
+        onValue(ref(db, 'users/' + userId), (snap) => {
+            uData = snap.val() || { balance: 50, adCount: 0, refL1: 0, refL2: 0, refL3: 0, streak: 0 };
+            document.getElementById('u-balance').innerText = uData.balance.toFixed(2);
+            document.getElementById('u-streak').innerText = uData.streak || 0;
+            document.getElementById('stat-ads').innerText = (uData.adCount || 0) + "/20";
+            document.getElementById('task-count').innerText = uData.adCount || 0;
+            document.getElementById('task-bar').style.width = (uData.adCount / 20 * 100) + "%";
+            document.getElementById('stat-ref').innerText = (uData.refL1 || 0) + "/20";
+            document.getElementById('l1-count').innerText = (uData.refL1 || 0) + " জন";
+            document.getElementById('l2-count').innerText = (uData.refL2 || 0) + " জন";
+            document.getElementById('l3-count').innerText = (uData.refL3 || 0) + " জন";
+            document.getElementById('ref-link').innerText = "https://t.me/BIGMANY_BOT?start=" + userId;
+        });
+
+        window.showAdAndEarn = function() {
+            if (uData.adCount >= 20) return alert("আজকের টাস্ক শেষ!");
+            show_10882727().then(() => {
+                runTransaction(ref(db, 'users/' + userId + '/balance'), b => (b || 0) + 20);
+                runTransaction(ref(db, 'users/' + userId + '/adCount'), c => (c || 0) + 1);
+                alert("অভিনন্দন! ২০ টাকা ইনকাম হয়েছে।");
+            }).catch(() => alert("বিজ্ঞাপন লোড হচ্ছে না।"));
+        };
+
+        window.handleWithdraw = function() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const notice = document.getElementById('withdraw-notice');
+            
+            const cond1 = uData.balance >= 1200 && amount >= 1200;
+            const cond2 = uData.adCount >= 20;
+            const cond3 = (uData.refL1 || 0) >= 20;
+
+            if (cond1 && cond2 && cond3) {
+                alert("অনুরোধ পেন্ডিং আছে! ২৪ ঘণ্টার মধ্যে পাবেন।");
+                notice.innerHTML = "পেমেন্ট পেন্ডিং... প্রসেসিং চলছে।";
+            } else {
+                notice.classList.add('error-box');
+                notice.innerHTML = `❌ রিকোয়েস্ট রিজেক্টেড!<br>১২০০ টাকা, ২০ রেফার এবং ২০ অ্যাড লাগবে।`;
+                alert("শর্ত পূরণ হয়নি! রেড মার্ক দেখুন।");
+            }
+        };
+
+        const leaders = [{n: "Emon Chowdhury", b: 85400}, {n: "Lamha Mam", b: 72100}, {n: "Abir Hasan", b: 50500}];
+        document.getElementById('leader-list').innerHTML = leaders.map(l => `
+            <div class="flex justify-between p-3 bg-gray-50 rounded-xl text-xs font-bold">
+                <span>${l.n}</span><span class="text-green-500">৳${l.b}</span>
+            </div>
+        `).join('');
+
+        window.switchTab = (id) => {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active-tab'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
+            document.getElementById(id).classList.add('active-tab');
+            event.currentTarget.classList.add('nav-active');
+        };
+
+        const fakeUsers = ["Sag***", "Mim***", "Anu***", "Rak***"];
+        setInterval(() => {
+            const u = fakeUsers[Math.floor(Math.random()*fakeUsers.length)];
+            const a = Math.floor(Math.random()*5000)+1200;
+            document.getElementById('fake-news').innerText = `🎉 ${u} এইমাত্র ৳${a} উত্তোলন করেছেন (BKASH)`;
+        }, 7000);
+
+        window.copyRef = () => {
+            navigator.clipboard.writeText(document.getElementById('ref-link').innerText);
+            alert("রেফার লিঙ্ক কপি হয়েছে!");
+        };
+    </script>
+</body>
+</html>
